@@ -36,7 +36,7 @@ FOREIGN KEY (id_wlasciciela) REFERENCES postac (id_postaci) ON DELETE CASCADE
 ```sql
 ALTER TABLE walizka MODIFY COLUMN kolor ENUM('rozowy', 'czerwony', 'teczowy', 'zolty') default 'rozowy';
 ```  
-4.
+3.
 ```sql
 INSERT INTO walizka (pojemnosc, kolor, id_wlasciciela) VALUES (55, "czerwony", 1);
 INSERT INTO walizka (pojemnosc, id_wlasciciela) VALUES (40, 2);

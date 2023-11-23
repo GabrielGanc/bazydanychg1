@@ -15,7 +15,9 @@ ALTER TABLE postac DROP PRIMARY KEY;
 # Zadanie 2
 a)
 ```sql
-ALTER TABLE postac ADD pesel INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY;
+ALTER TABLE postac ADD pesel CHAR(11);
+UPDATE postac SET pesel="76453625431" + id_postaci;
+ALTER TABLE postac ADD PRIMARY KEY (pesel);
 ```
 b)
 ```sql

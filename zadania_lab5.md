@@ -36,7 +36,7 @@ b)
 UPDATE statek SET max_ladownosc = max_ladownosc*0.7 WHERE data_wodowania > "1521-01-01";
 ```
 c)
-```
+```sql
 SELECT * FROM postac WHERE wiek > 1000;
 ```
 # Zadanie 4

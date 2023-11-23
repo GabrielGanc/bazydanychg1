@@ -49,23 +49,8 @@ INSERT INTO postac (id_postaci, nazwa, data_ur, wiek) VALUES
 ```
 b)
 ```sql
-CREATE TABLE marynarz (
-id_postaci INT NOT NULL,
-nazwa VARCHAR(40),
-rodzaj ENUM('wiking','ptak','kobieta','syrena'),
-data_ur DATE,
-wiek INT UNSIGNED DEFAULT NULL,
-funkcja VARCHAR(40),
-statek VARCHAR(40),
-pesel INT(11)
-);
-INSERT INTO marynarz
-SELECT * FROM postac
-WHERE statek != "";
-```
-c)
-```sql
-ALTER TABLE marynarz MODIFY pesel INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY;
+CREATE TABLE marynarz LIKE postac;
+INSERT INTO marynarz SELECT * FROM postac WHERE statek != "";
 ```
 # Zadanie 5
 a)

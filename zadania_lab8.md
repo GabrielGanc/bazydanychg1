@@ -66,5 +66,7 @@ GROUP BY w.nazwa;
 1.
 ```sql
 SELECT k.nazwa, DATEDIFF(w.data_rozpoczecia, k.dataUr) AS wiek_w_dniach
-FROM kreatura AS k, wyprawa AS w;
+FROM kreatura AS k, wyprawa AS w, uczestnicy AS u, etapy_wyprawy AS e, sektor AS s
+WHERE k.idKreatury = u.id_uczestnika AND w.id_wyprawy = u.id_wyprawy AND
+w.id_wyprawy = e.idWyprawy AND s.id_sektora = e.sektor AND s.id_sektora = 7;
 ```

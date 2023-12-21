@@ -57,7 +57,7 @@ ON w.id_wyprawy = e.idWyprawy GROUP BY w.nazwa;
 ```
 2.
 ```sql
-SELECT w.nazwa, SUM(z.waga*e.ilosc)/COUNT(u.id_uczestnika) AS srednia_waga_zasobow
+SELECT w.nazwa, SUM(z.waga*e.ilosc)/COUNT(DISTINCT u.id_uczestnika) AS srednia_waga_zasobow
 FROM ekwipunek AS e, zasob AS z, wyprawa AS w, uczestnicy AS u
 WHERE e.idZasobu = z.idZasobu AND u.id_uczestnika = e.idKreatury AND u.id_wyprawy = w.id_wyprawy
 GROUP BY w.nazwa;

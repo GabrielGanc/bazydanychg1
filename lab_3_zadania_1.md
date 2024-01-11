@@ -37,13 +37,13 @@ ON t.id_towaru = p.towar GROUP BY t.nazwa_towaru ORDER BY COUNT(p.towar) DESC LI
 ```
 # Zadanie 9
 ```sql
-SELECT z.numer_zamowienia, SUM(p.cena) AS wartosc FROM zamowienie AS z
+SELECT z.numer_zamowienia, SUM(p.cena*p.ilosc) AS wartosc FROM zamowienie AS z
 LEFT JOIN pozycja_zamowienia AS p ON z.id_zamowienia = p.zamowienie
 WHERE z.data_zamowienia BETWEEN '2017-01-01' AND '2017-03-31' GROUP BY z.numer_zamowienia;
 ```
 # Zadanie 10
 ```sql
-SELECT p.imie, p.nazwisko, SUM(pz.cena) AS suma_wartosci FROM pracownik AS p
+SELECT p.imie, p.nazwisko, SUM(pz.cena*pz.ilosc) AS suma_wartosci FROM pracownik AS p
 LEFT JOIN zamowienie AS z ON p.id_pracownika = z.pracownik_id_pracownika
 LEFT JOIN pozycja_zamowienia AS pz ON pz.zamowienie = z.id_zamowienia
 GROUP BY p.id_pracownika ORDER BY SUM(pz.cena) DESC;

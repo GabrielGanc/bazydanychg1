@@ -33,4 +33,15 @@ LEFT JOIN adres_klienta AS a ON z.klient = a.klient GROUP BY a.miejscowosc;
 SELECT SUM(p.cena) FROM zamowienie AS z LEFT JOIN pozycja_zamowienia AS p
 ON z.id_zamowienia = p.zamowienie WHERE status_zamowienia = 5;
 ```
-# Zadanie 7
+# Zadanie 8
+```sql
+SELECT k.nazwa_kategori, SUM(s.ilosc) AS wartosc_stanu_mag FROM stan_magazynowy AS s
+JOIN towar AS t ON s.towar = t.id_towaru JOIN kategoria AS k ON t.kategoria = k.id_kategori
+GROUP BY k.nazwa_kategori;
+```
+# Zadanie 9
+```sql
+SELECT MONTHNAME(data_urodzenia) AS miesiac, COUNT(id_pracownika) AS ilosc_pracownikow
+FROM pracownik GROUP BY MONTHNAME(data_urodzenia) ORDER BY FIELD
+(miesiac, 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+```
